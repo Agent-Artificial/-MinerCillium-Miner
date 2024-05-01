@@ -3,6 +3,7 @@ from enum import Enum
 from typing import Any, Dict, Optional, Sequence, Tuple
 
 import pydantic
+from pydantic.types import conint
 from hivemind import PeerID
 from hivemind.moe.expert_uid import ExpertUID
 
@@ -19,7 +20,7 @@ def parse_uid(uid: ModuleUID) -> Tuple[str, int]:
 
 @pydantic.dataclasses.dataclass
 class ModelInfo:
-    num_blocks: pydantic.conint(ge=1, strict=True)
+    num_blocks: conint(ge=1, strict=True)
     repository: Optional[str] = None
 
     def to_dict(self) -> dict:
@@ -44,8 +45,8 @@ class ServerInfo:
     state: ServerState
     throughput: RPS
 
-    start_block: Optional[pydantic.conint(ge=0, strict=True)] = None
-    end_block: Optional[pydantic.conint(ge=0, strict=True)] = None
+    start_block: Optional[conint(ge=0, strict=True)] = None
+    end_block: Optional[conint(ge=0, strict=True)] = None
 
     public_name: Optional[str] = None
     version: Optional[str] = None
@@ -58,7 +59,7 @@ class ServerInfo:
     torch_dtype: Optional[str] = None
     quant_type: Optional[str] = None
     using_relay: Optional[bool] = None
-    cache_tokens_left: Optional[pydantic.conint(ge=0, strict=True)] = None
+    cache_tokens_left: Optional[conint(ge=0, strict=True)] = None
     next_pings: Optional[Dict[str, pydantic.confloat(ge=0, strict=True)]] = None
 
     def to_tuple(self) -> Tuple[int, float, dict]:
