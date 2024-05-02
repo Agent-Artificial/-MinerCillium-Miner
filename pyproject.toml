@@ -1,6 +1,6 @@
 [tool.black]
 line-length = 120
-required-version = "24.3.0"
+required-version = "24.4.2"
 
 [tool.isort]
 profile = "black"
@@ -42,12 +42,11 @@ packaging = "^24.0"
 async-timeout = "^4.0.3"
 pydantic-core = "^2.18.2"
 
-
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.2.0"
 pytest-forked = "^1.6.0"
 pytest-asyncio = "^0.23.6"
-black = "^24.4.2"
+black = {extras = ["jupyter"], version = "^24.4.2"}
 isort = "^5.13.2"
 psutil = "^5.9.8"
 
