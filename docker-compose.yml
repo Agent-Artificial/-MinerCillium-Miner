@@ -32,3 +32,4 @@ services:
 
 volumes:
   petals-cache-backbone:
+  log:
