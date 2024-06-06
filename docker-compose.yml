@@ -19,7 +19,7 @@ services:
     command: python -m petals.cli.run_server  --num_blocks=$BLOCKS  $MODEL  --initial_peers $INITIAL_PEERS  --device=$DEVICE --public_name $PUBLIC_NAME --max_disk_space $MAX_DISK_SPACE --public_ip=${PUBLIC_IP} --port ${PORT} --identity_path /cache/bootstrap1.id
     volumes:
       - petals-cache-backbone:/cache
-      - log:/opt/cillium/var/log
+      - ./log:/opt/cillium/var/log
 
     restart: always
     deploy:
